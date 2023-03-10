@@ -20,7 +20,6 @@ function getComputerChoice(){
 function getUserChoice(){
     var userChoice = prompt("Please enter your Selection:")
     userChoice = userChoice.toLowerCase();
-    console.log(userChoice);
     return userChoice;
 }
 
@@ -29,39 +28,55 @@ function compare(playerSelection, computerSelection){
     var isPlayerWin = false;
     var winMsg = "You win!" + playerSelection + " beats " + computerSelection;
     var losMsg = "You lose!" + computerSelection + " beats " + playerSelection;
-    // if player is rock 
-        // if computer is scissor
-            // player win
-        // else
-            // player lose
+    var tieMsg = "It's a tie!";
+ 
 
-    // if player is scissor
-        // if computer is paper
-            // player win
-        // else
-            // player lose
+    if (playerSelection === computerSelection){
+        return tieMsg;
+    }
 
-    // if player is paper
-        // if computer is rock
-            // player win
-        // else
-            // player lose
+    if (playerSelection === "rock"){
+        if(computerSelection === "scissor"){
+            isPlayerWin = true;
+        } else{
+            isPlayerWin = false;
+        }
+    } else if (playerSelection === "scissor"){
+        if(computerSelection === "paper"){
+            isPlayerWin = true;
+        } else{
+            isPlayerWin = false;
+        }
+    } else if (playerSelection === "paper"){
+        if(computerSelection === "rock"){
+            isPlayerWin = true;
+        } else{
+            isPlayerWin = false;
+        }
+    } 
+
+       
+    if (isPlayerWin === true){
+        return winMsg;
+    } else{
+        return losMsg;
+    }
 }
 
 
 // start a round, taking in player and computer's choices
-function playRound(playerSelection, computerSelection){
-    computerSelection = getComputerChoice();
-    playerSelection = getUserChoice;
+function playRound(){
+    var computerSelection = getComputerChoice();
+    var playerSelection = getUserChoice();
     return compare(playerSelection,computerSelection);
 }
 
 // have multiple rounds
 function game(){
     for (let i = 0; i < 5; i++) {
-        //playRound(playerSelection, computerSelection)
+        alert(playRound());
      }
 }
 
-getUserChoice();
+game();
 
