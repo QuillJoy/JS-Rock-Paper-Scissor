@@ -19,6 +19,8 @@ function getComputerChoice(){
 // prompt user's choice
 function getUserChoice(){
     var userChoice = prompt("Please enter your Selection:")
+    userChoice = userChoice.toLowerCase();
+    console.log(userChoice);
     return userChoice;
 }
 
@@ -61,5 +63,5 @@ function game(){
      }
 }
 
-getComputerChoice();
+getUserChoice();
 
