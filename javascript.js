@@ -4,11 +4,21 @@
 
 // randomly generate computer's selection
 function getComputerChoice(){
+    var computerSelection;
+    var randomNum = Math.random();
+    if (randomNum < 0.33){
+        computerSelection = "rock"
+    } else if (randomNum < 0.66){
+        computerSelection = "paper"
+    } else {
+        computerSelection = "scissor"
+    }
     return computerSelection;
 }
 
 // prompt user's choice
 function getUserChoice(){
+    var userChoice = prompt("Please enter your Selection:")
     return userChoice;
 }
 
@@ -51,5 +61,5 @@ function game(){
      }
 }
 
-
+getComputerChoice();
 
